@@ -1,0 +1,23 @@
+{
+  "name": "cypress-cucumber-exercise",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node_modules/.bin/cypress open",
+    "test": "npx cypress run",
+    "pretest": "node ./cypress/reporting/delete-results.js",
+    "report": "node ./cypress/reporting/report.js"
+  },
+  "author": "Suneela",
+  "license": "ISC",
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "dependencies": {
+    "cypress": "^8.3.1",
+    "cypress-cucumber-preprocessor": "^4.3.0",
+    "cypress-iframe": "^1.0.1",
+    "cucumber-html-reporter": "^5.4.0"
+  }
+}
