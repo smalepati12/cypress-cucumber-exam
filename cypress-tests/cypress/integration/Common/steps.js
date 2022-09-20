@@ -12,10 +12,10 @@ When('I navigate to the device dashboard', function() {
 });
 
 When(
-  'I click the Reboot button of the device at the address {string}',
+  `I click the Reboot button of the device at the address {string}`,
   address => {
     cy.wait(3000);
-    DP.rebootButton.eq(1).click();
+    DP.rebootButton.eq(address).click();  
     cy.log(address);
   }
 );
@@ -27,6 +27,7 @@ Then('the device successfully restarts', function() {
 Then('the device status indicator becomes green', function() {
   DP.rebootButton.eq(1).should('be.enabled');
   DP.rebootImage
+    .eq(1)
     .find('.device-info-item-online')
     .should('have.css', 'background-color', 'rgba(0, 0, 0, 0)');
 });
