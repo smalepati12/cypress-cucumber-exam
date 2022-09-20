@@ -12,10 +12,11 @@ When('I navigate to the device dashboard', function() {
 });
 
 When(
-  `I click the Reboot button of the device at the address {string}`,
-  address => {
+  `I click the Reboot button of the device at the {string} address {string}`,
+  (index,address) => {
     cy.wait(3000);
-    DP.rebootButton.eq(address).click();  
+    DP.rebootButton.eq(index).click();
+    DP.rebootAddress.eq(index).should('contain', address);
     cy.log(address);
   }
 );
